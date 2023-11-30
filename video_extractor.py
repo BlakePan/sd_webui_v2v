@@ -33,7 +33,6 @@ class VideoExtractor:
         self.first_n_frames = (
             int(first_n_mins * 60 * self.video_fps) if first_n_mins else None
         )
-        # print(self.first_n_frames)
 
     def extract_frames(self):
         # Check if the input file exists
@@ -55,11 +54,9 @@ class VideoExtractor:
 
         # Calculate the frame interval based on the desired fps
         frame_interval = int(self.video_fps / self.fps)
-        # print(frame_interval)
 
         # Calculate frame indices for start and end times
         start_frame_index = int(self.cal_total_seconds(self.start_time) * self.video_fps)
-        print(start_frame_index)
         end_frame_index = None
         if self.end_time:
             end_frame_index = int(self.cal_total_seconds(self.end_time) * self.video_fps)
